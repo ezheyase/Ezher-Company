@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CPU Amphitheater | Cyber Architecture</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --neon-cyan: #00ffff;
+            --cyber-black: #000;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: none;
+        }
+
+        body {
+            background: var(--cyber-black);
+            color: white;
+            font-family: 'Courier New', monospace;
+            overflow: hidden;
+        }
+
+        .video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        #cyberVideo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: hue-rotate(90deg) contrast(120%);
+        }
+
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            height: 100vh;
+            padding: 2rem;
+            gap: 2rem;
+        }
+
+        .info-panel {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 2rem;
+            border: 2px solid var(--neon-cyan);
+            backdrop-filter: blur(5px);
+            overflow-y: auto;
+            animation: panelSlide 1s ease-out;
+        }
+
+        @keyframes panelSlide {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(0); }
+        }
+
+        .project-title {
+            font-size: 2rem;
+            color: var(--neon-cyan);
+            margin-bottom: 1rem;
+            animation: glitch 2s infinite;
+        }
+
+        @keyframes glitch {
+            0%, 100% { text-shadow: 0 0 15px var(--neon-cyan); }
+            50% { text-shadow: -2px 0 #f0f, 2px 0 #0ff; }
+        }
+
+        .holo-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            perspective: 1000px;
+        }
+
+        .holo-item {
+            aspect-ratio: 1;
+            background-size: cover;
+            background-position: center;
+            border: 3px solid var(--neon-cyan);
+            transition: all 0.5s;
+            position: relative;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .control-panel {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            display: flex;
+            gap: 1rem;
+            z-index: 1000;
+        }
+
+        .cyber-btn {
+            padding: 1rem 2rem;
+            background: #000;
+            border: 2px solid var(--neon-cyan);
+            color: var(--neon-cyan);
+            text-transform: uppercase;
+            transition: all 0.3s;
+        }
+
+        .cyber-btn:hover {
+            background: var(--neon-cyan);
+            color: #000;
+            transform: skew(-15deg);
+        }
+
+        .fullscreen-viewer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.95);
+            display: none;
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .social-links {
+            margin-top: 2rem;
+            border-top: 2px solid var(--neon-cyan);
+            padding -top: 1rem;
+        }
+
+        .social-link {
+            color: var(--neon-cyan);
+            text-decoration: none;
+            display: block;
+            margin: 1rem 0;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            text-shadow: 0 0 15px var(--neon-cyan);
+            transform: translateX(10px);
+        }
+
+        .cyber-cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--neon-cyan);
+            border-radius: 50%;
+            pointer-events: none;
+            mix-blend-mode: difference;
+            z-index: 9999;
+            transition: transform 0.1s;
+        }
+
+        .download-btn {
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            background: var(--neon-cyan);
+            color: #000;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .download-btn:hover {
+            background: #000;
+            color: var(--neon-cyan);
+        }
+    </style>
+</head>
+<body>
+    <div class="video-container">
+        <video autoplay muted loop id="cyberVideo">
+            <source src="neon.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div class="cyber-cursor"></div>
+
+    <div class="main-grid">
+        <div class="info-panel">
+            <h1 class="project-title">CPU AMPHITHEATER</h1>
+            <div class="project-description">
+                <p>This architectural design for an amphitheater combines cutting-edge technology with sustainable design principles:</p>
+                
+                <p>◈ Inspired by CPU architecture and circuit board layouts<br>
+                ◈ Capacity for 1000+ students with modular RAM-inspired classrooms<br>
+                ◈ Fully solar-powered with integrated battery storage system<br>
+                ◈ Smart thermal management with light-filtering borders<br>
+                ◈ Interactive LED lighting visualizing data flow patterns</p>
+
+                <p>The Central Processor Unity (CPU) Amphitheater features a roof design with integrated solar panels that power the entire complex. Special light-filtering borders prevent heat gain while maximizing natural light, reducing energy consumption by 60% compared to traditional structures.</p>
+
+                <p>At night, stored solar energy activates LED circuits in the flooring and walls, creating an immersive environment that simulates data flowing through a motherboard. The surrounding modular classrooms are arranged in a motherboard pattern, with pathways representing circuit connections.</p>
+
+                <div class="social-links">
+                    <a href="https://www.instagram.com/yassine_ezh/p/DDdg3r7I9_p/" 
+                       class="social-link" target="_blank">
+                        <i class="fab fa-instagram"></i> Daytime Photos
+                    </a>
+                    <a href="https://www.instagram.com/yassine_ezh/p/DDf-MamobFW/" 
+                       class="social-link" target="_blank">
+                        <i class="fab fa-instagram"></i> Nighttime Photos
+                    </a>
+                    <a href="https://www.instagram.com/yassine_ezh/reel/DDf6mjnItzV/" 
+                       class="social-link" target="_blank">
+                        <i class="fab fa-instagram"></i> Project Video
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="holo-grid">
+            <div class="holo-item" style="background-image: url('amphiday1.jpg')" onclick="openFullscreen(this)">
+                <button class="download-btn">Download</button>
+            </div>
+            <div class="holo-item" style="background-image: url('amphiday2.jpg')" onclick="openFullscreen(this)">
+                <button class="download-btn">Download</button>
+            </div>
+            <div class="holo-item" style="background-image: url('amphiday3.jpg')" onclick="openFullscreen(this)">
+                <button class="download-btn">Download</button>
+            </div>
+            <div class="holo-item" style="background-image: url('amphinight1.jpg')" onclick="openFullscreen(this)">
+                <button class="download-btn">Download</button>
+            </div>
+            <div class="holo-item" style="background-image: url('amphinight2.jpg')" onclick="openFullscreen(this)">
+                <button class="download-btn">Download</button>
+            </div>
+            <div class="holo-item" style="background-image: url('amphinight3.jpg')" onclick="openFullscreen(this)">
+                <button class="download-btn">Download</button </div>
+        </div>
+    </div>
+
+    <div class="control-panel">
+        <button class="cyber-btn" onclick="window.location.href='index.html'">Return To Main Page</button>
+        <button class="cyber-btn" onclick="toggleNightMode()">NIGHT VISION</button>
+    </div>
+
+    <div class="fullscreen-viewer" id="viewer">
+        <img id="fullscreenImg" class="fullscreen-image" src="" alt="">
+        <button onclick="closeFullscreen()" class="cyber-btn" style="position: absolute; bottom: 2rem; right: 2rem;">
+            ❌ CLOSE
+        </button>
+    </div>
+
+    <audio id="bgMusic" loop autoplay>
+        <source src="gata.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        // Cursor System
+        const cursor = document.querySelector('.cyber-cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+        });
+
+        // Night Mode Toggle
+        let nightMode = false;
+        function toggleNightMode() {
+            nightMode = !nightMode;
+            const images = document.querySelectorAll('.holo-item');
+            images.forEach((item, index) => {
+                if (nightMode) {
+                    item.style.backgroundImage = `url('amphinight${index % 3 + 1}.jpg')`;
+                } else {
+                    item.style.backgroundImage = `url('amphiday${index % 3 + 1}.jpg')`;
+                }
+            });
+        }
+
+        // Fullscreen Viewer
+        function openFullscreen(item) {
+            const imgSrc = item.style.backgroundImage
+                .replace('url("', '')
+                .replace('")', '');
+            document.getElementById('fullscreenImg').src = imgSrc;
+            document.getElementById('viewer').style.display = 'flex';
+        }
+
+        function closeFullscreen() {
+            document.getElementById('viewer').style.display = 'none';
+        }
+
+        // Audio System
+        document.addEventListener('DOMContentLoaded', () => {
+            const audio = document.getElementById('bgMusic');
+            audio.play().catch(() => {
+                console.error('Audio playback failed.');
+            });
+        });
+    </script>
+</body>
+</html>
